@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.kapt")
+    id("com.google.dagger.hilt.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -36,11 +39,18 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        dataBinding = true
         compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
 }
 
 dependencies {
+    implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.material3.android)
     val room_version = "2.6.1"
     implementation(libs.androidx.room.runtime)
 
@@ -68,6 +78,18 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.glide)
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
+    implementation("androidx.hilt:hilt-navigation-fragment:1.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.databinding:databinding-runtime:8.3.0")
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
