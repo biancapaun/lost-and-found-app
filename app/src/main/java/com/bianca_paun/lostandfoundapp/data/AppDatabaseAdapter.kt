@@ -21,7 +21,7 @@ class AppDatabaseAdapter {
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
         val database =
             Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME)
-                .fallbackToDestructiveMigration(true)
+                .fallbackToDestructiveMigration(false)
                 .build()
         database.openHelper.writableDatabase
         return database
