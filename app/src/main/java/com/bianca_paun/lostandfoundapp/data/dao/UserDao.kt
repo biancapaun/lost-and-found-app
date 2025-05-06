@@ -16,4 +16,7 @@ interface UserDao {
     @Query("SELECT * FROM UserModel WHERE username = :username LIMIT 1")
     suspend fun getUserByUsername(username: String): UserModel?
 
+    @Query("SELECT * FROM UserModel WHERE username = :username AND password = :password LIMIT 1")
+    suspend fun getUserByUsernameAndPassword(username: String, password: String): UserModel?
+
 }

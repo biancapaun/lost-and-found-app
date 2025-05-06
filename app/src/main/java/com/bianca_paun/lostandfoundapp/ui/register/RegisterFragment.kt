@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bianca_paun.lostandfoundapp.R
 import com.bianca_paun.lostandfoundapp.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,7 +35,13 @@ class RegisterFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.viewModel.userModel.observe(viewLifecycleOwner) {
+        this.viewModel.userModel.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                findNavController().navigate(
+                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
+                )
+            }
+
         }
     }
 

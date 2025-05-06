@@ -21,4 +21,8 @@ class UserRepositoryLocal(private val dao: UserDao) : UserRepository {
         return dao.getUserByUsername(username)
     }
 
+    override suspend fun getUserByUsernameAndPassword(username: String, password: String): UserModel? {
+        return dao.getUserByUsernameAndPassword(username, password)
+    }
+
 }

@@ -7,5 +7,14 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.bianca_paun.lostandfoundapp.ui.register.RegisterFragment"
-        android:label="Register" />
+        android:label="Register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.bianca_paun.lostandfoundapp.ui.login.LoginFragment"
+        android:label="Login" />
 </navigation>
