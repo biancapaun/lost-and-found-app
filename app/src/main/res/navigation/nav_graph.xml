@@ -16,5 +16,15 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.bianca_paun.lostandfoundapp.ui.login.LoginFragment"
-        android:label="Login" />
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.bianca_paun.lostandfoundapp.ui.home.HomeFragment"
+        android:label="Home" />
+
 </navigation>
